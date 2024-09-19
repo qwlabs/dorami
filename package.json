@@ -1,0 +1,53 @@
+{
+  "name": "@mesh/monorepo",
+  "module": "index.ts",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "setup": "rm -rf **/node_modules **/dist && bun install",
+    "link": "bun --filter './packages/*' dev:link",
+    "release": "bun run build && bunx @morlay/bunpublish",
+    "build": "NODE_ENV=production && pnpm run build:packages",
+    "build:check": "pnpm run format:check && pnpm run security:check",
+    "build:packages": "bun run build:lang",
+    "build:lang": "bun --filter './packages/lang' build",
+    "dev": "pnpm --filter showcase dev",
+    "module:dev": "pnpm --filter @primevue/nuxt-module dev",
+    "security:check": "pnpm audit --prod --audit-level high",
+    "format": "prettier --write \"**/*.{vue,js,mjs,ts,d.ts}\" --cache",
+    "format:check": "prettier --check \"**/*.{vue,js,mjs,ts,d.ts}\"",
+    "lint": "eslint . --cache",
+    "lint:fix": "eslint --fix .",
+    "test:unit": "pnpm --filter primevue test:unit"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^3.6.2",
+    "@types/bun": "latest",
+    "@types/fs-extra": "^11.0.4",
+    "@typescript-eslint/eslint-plugin": "^8.6.0",
+    "@typescript-eslint/parser": "^8.6.0",
+    "@typescript-eslint/type-utils": "^8.6.0",
+    "@typescript-eslint/types": "^8.6.0",
+    "@typescript-eslint/typescript-estree": "^8.6.0",
+    "@typescript-eslint/utils": "^8.6.0",
+    "eslint": "^9.10.0",
+    "eslint-plugin-unused-imports": "^4.1.4",
+    "eslint-plugin-vue": "^9.28.0",
+    "pnpm": "^9.10.0",
+    "prettier": "^3.3.3",
+    "taze": "^0.16.7",
+    "typescript": "^5.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20.17.0",
+    "bun": ">=1"
+  }
+}

@@ -1,0 +1,30 @@
+name: Commit check
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  COMMIT_OWNER: ${{ github.event.pusher.name }}
+  COMMIT_SHA: ${{ github.sha }}
+  PIPELINE_ID: ${{ github.run_number }}
+  APP_BRANCH_NAME: ${{ github.ref_name }}
+  DOCKER_REGISTRY: registry.cn-hangzhou.aliyuncs.com
+  FORCE_COLOR: 1
+
+jobs:
+  commit:
+    name: commit
+    runs-on: [linux-64]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check
+        run: |
+          earthly --ci --allow-privileged +ci-check \
+          --PIPELINE_ID=${{ env.PIPELINE_ID }}
+      - name: Release
+        run: |
+          earthly --ci --allow-privileged --push +ci-release \
+          --PIPELINE_ID=${{ env.PIPELINE_ID }} \
+          --NPM_ACCESS_TOKEN=${{ secrets.NPM_ACCESS_TOKEN }}
