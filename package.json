@@ -23,7 +23,8 @@
     "format:check": "prettier --check \"**/*.{vue,js,mjs,ts,d.ts}\"",
     "lint": "eslint . --cache",
     "lint:fix": "eslint --fix .",
-    "test:unit": "pnpm --filter primevue test:unit"
+    "test:unit": "pnpm --filter primevue test:unit",
+    "taze": "taze"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.6.2",
@@ -40,8 +41,8 @@
     "eslint-plugin-vue": "^9.28.0",
     "pnpm": "^9.10.0",
     "prettier": "^3.3.3",
-    "taze": "^0.16.7",
-    "typescript": "^5.0.0"
+    "taze": "^0.16.9",
+    "typescript": "^5.6.2"
   },
   "publishConfig": {
     "access": "public"
