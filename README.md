@@ -1,4 +1,4 @@
-# mesh
+# dorami
 
 To install dependencies:
 

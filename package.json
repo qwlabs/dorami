@@ -1,5 +1,5 @@
 {
-  "name": "@mesh/monorepo",
+  "name": "@dorami/monorepo",
   "module": "index.ts",
   "type": "module",
   "version": "0.0.0",
@@ -13,17 +13,15 @@
     "link": "bun --filter './packages/*' dev:link",
     "release": "bun run build && bunx @morlay/bunpublish",
     "build": "NODE_ENV=production && pnpm run build:packages",
-    "build:check": "pnpm run format:check && pnpm run security:check",
+    "build:check": "bun run format:check",
     "build:packages": "bun run build:lang",
     "build:lang": "bun --filter './packages/lang' build",
-    "dev": "pnpm --filter showcase dev",
-    "module:dev": "pnpm --filter @primevue/nuxt-module dev",
-    "security:check": "pnpm audit --prod --audit-level high",
+    "dev": "bun --filter showcase dev",
     "format": "prettier --write \"**/*.{vue,js,mjs,ts,d.ts}\" --cache",
     "format:check": "prettier --check \"**/*.{vue,js,mjs,ts,d.ts}\"",
     "lint": "eslint . --cache",
     "lint:fix": "eslint --fix .",
-    "test:unit": "pnpm --filter primevue test:unit",
+    "test:unit": "bun --filter primevue test:unit",
     "taze": "taze"
   },
   "devDependencies": {
@@ -39,13 +37,20 @@
     "eslint": "^9.10.0",
     "eslint-plugin-unused-imports": "^4.1.4",
     "eslint-plugin-vue": "^9.28.0",
-    "pnpm": "^9.10.0",
+    "fs-extra": "^11.2.0",
     "prettier": "^3.3.3",
     "taze": "^0.16.9",
     "typescript": "^5.6.2"
   },
-  "publishConfig": {
-    "access": "public"
+  "author": "Qwlabs",
+  "homepage": "https://github.com/qwlabs/dorami",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qwlabs/dorami.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/qwlabs/dorami/issues"
   },
   "engines": {
     "node": ">=20.17.0",

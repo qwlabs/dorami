@@ -1,5 +1,5 @@
 {
-    "name": "@mesh/lang",
+    "name": "@dorami/lang",
     "version": "0.0.0",
     "main": "./src/index.ts",
     "module": "./src/index.ts",
@@ -28,8 +28,16 @@
     "devDependencies": {
         "tsup": "^8.2.4"
     },
-    "repository": {},
-    "bugs": {},
+    "author": "Qwlabs",
+    "homepage": "https://github.com/qwlabs/dorami",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/qwlabs/dorami.git"
+    },
+    "bugs": {
+        "url": "https://github.com/qwlabs/dorami/issues"
+    },
     "engines": {
         "node": ">=20.17.0",
         "bun": ">=1"

@@ -1,5 +1,5 @@
-import path from 'node:path';
-import fs from 'fs-extra';
+import * as path from 'node:path';
+import * as fs from 'fs-extra';
 import { clearPackageJson, resolvePath } from '../../../scripts/build-helper';
 
 const { __dirname, __workspace, OUTPUT_DIR } = resolvePath(import.meta.url);
