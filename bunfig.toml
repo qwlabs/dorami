@@ -4,8 +4,6 @@ dev = true
 peer = true
 production = false
 frozenLockfile = true
-registry = { url = "https://registry.npmjs.org", token = "$NPM_TOKEN"}
-
 
 [test]
 smol = true

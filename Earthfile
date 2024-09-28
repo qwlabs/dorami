@@ -29,10 +29,11 @@ check:
 release:
   FROM +build-base
   COPY . .
-  RUN npm config set //registry.npmjs.org/:_authToken=${NPM_ACCESS_TOKEN}
-  RUN npm version ${APP_VERSION} --no-commit-hooks --no-git-tag-version --allow-same-version
-  RUN bun run build
-  RUN bun run release
+
+#  RUN npm config set //registry.npmjs.org/:_authToken=${NPM_ACCESS_TOKEN}
+#  RUN npm version ${APP_VERSION} --no-commit-hooks --no-git-tag-version --allow-same-version
+#  RUN bun run build
+#  RUN bun run release
 
 ci-check:
   BUILD +check
