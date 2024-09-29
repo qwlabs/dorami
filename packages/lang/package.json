@@ -19,11 +19,11 @@
         "registry": "https://registry.npmjs.org/"
     },
     "scripts": {
-        "build": "NODE_ENV=production INPUT_DIR=./ OUTPUT_DIR=dist/ bun run build:package",
-        "build:package": "bun run build:prebuild && tsup && bun run build:postbuild",
-        "build:prebuild": "bun ./scripts/prebuild.ts",
-        "build:postbuild": "bun ./scripts/postbuild.ts",
-        "dev:link": "bun link --global && bun link"
+        "build": "NODE_ENV=production INPUT_DIR=./ OUTPUT_DIR=dist/ pnpm run build:package",
+        "build:package": "pnpm run build:prebuild && tsup && pnpm run build:postbuild",
+        "build:prebuild": "tsx ./scripts/prebuild.ts",
+        "build:postbuild": "tsx ./scripts/postbuild.ts",
+        "dev:link": "pnpm link --global && npm link"
     },
     "devDependencies": {
         "tsup": "^8.2.4"
@@ -40,6 +40,7 @@
     },
     "engines": {
         "node": ">=20.17.0",
-        "bun": ">=1"
+        "bun": ">=1",
+        "pnpm": ">=9"
     }
 }

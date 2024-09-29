@@ -4,30 +4,26 @@
   "type": "module",
   "version": "0.0.2",
   "private": true,
-  "workspaces": [
-    "packages/*",
-    "apps/*"
-  ],
   "scripts": {
-    "setup": "rm -rf **/node_modules **/dist && bun install",
-    "link": "bun --filter './packages/*' dev:link",
-    "release": "bun run build && bunx @morlay/bunpublish",
-    "build": "NODE_ENV=production && pnpm run build:packages",
-    "build:check": "bun run format:check",
-    "build:packages": "bun run build:lang",
-    "build:lang": "bun --filter './packages/lang' build",
-    "dev": "bun --filter showcase dev",
+    "setup": "rm -rf **/node_modules **/dist ./pnpm-lock.yaml && pnpm install",
+    "link": "pnpm --filter './packages/*' dev:link",
+    "release": "pnpm run build && pnpm recursive publish --filter './packages/*' --no-git-checks --report-summary",
+    "build": "NODE_ENV=production pnpm run build:check && pnpm run build:packages",
+    "build:check": "pnpm run format:check && pnpm run security:check",
+    "build:packages": "pnpm run build:lang",
+    "build:lang": "pnpm --filter lang build",
+    "dev": "pnpm --filter showcase dev",
+    "hot:dev": "DEV_ENV=hot pnpm --filter showcase dev",
+    "security:check": "pnpm audit --prod --audit-level high",
     "format": "prettier --write \"**/*.{vue,js,mjs,ts,d.ts}\" --cache",
     "format:check": "prettier --check \"**/*.{vue,js,mjs,ts,d.ts}\"",
     "lint": "eslint . --cache",
     "lint:fix": "eslint --fix .",
-    "test:unit": "bun --filter primevue test:unit",
+    "test:unit": "pnpm --filter primevue test:unit",
     "taze": "taze"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.6.2",
-    "@jsdevtools/npm-publish": "^3.1.1",
-    "@types/bun": "latest",
     "@types/fs-extra": "^11.0.4",
     "@typescript-eslint/eslint-plugin": "^8.6.0",
     "@typescript-eslint/parser": "^8.6.0",
@@ -40,8 +36,15 @@
     "eslint-plugin-vue": "^9.28.0",
     "fs-extra": "^11.2.0",
     "prettier": "^3.3.3",
+    "tsx": "^4.16.2",
     "taze": "^0.16.9",
     "typescript": "^5.6.2"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/",
+    "directory": "dist",
+    "linkDirectory": true
   },
   "author": "Qwlabs",
   "homepage": "https://github.com/qwlabs/dorami",
@@ -55,6 +58,6 @@
   },
   "engines": {
     "node": ">=20.17.0",
-    "bun": ">=1"
+    "pnpm": ">=9"
   }
 }
