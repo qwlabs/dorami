@@ -10,7 +10,6 @@ env:
   COMMIT_SHA: ${{ github.sha }}
   PIPELINE_ID: ${{ github.run_number }}
   APP_BRANCH_NAME: ${{ github.ref_name }}
-  DOCKER_REGISTRY: registry.cn-hangzhou.aliyuncs.com
   FORCE_COLOR: 1
 
 jobs:

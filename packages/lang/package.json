@@ -26,7 +26,8 @@
         "dev:link": "pnpm link --global && npm link"
     },
     "devDependencies": {
-        "tsup": "^8.2.4"
+        "tsup": "^8.2.4",
+        "tsx": "^4.16.2"
     },
     "author": "Qwlabs",
     "homepage": "https://github.com/qwlabs/dorami",

@@ -1,0 +1,15 @@
+.vscode
+coverage
+node_modules
+dist
+.vite
+__snapshots__
+auto-*.d.ts
+.eslintrc-auto-import.json
+*.js
+*.js.map
+.eslintcache
+*.tsbuildinfo
+.git
+.vscode
+.github

@@ -36,7 +36,6 @@
     "eslint-plugin-vue": "^9.28.0",
     "fs-extra": "^11.2.0",
     "prettier": "^3.3.3",
-    "tsx": "^4.16.2",
     "taze": "^0.16.9",
     "typescript": "^5.6.2"
   },
