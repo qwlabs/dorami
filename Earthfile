@@ -18,20 +18,20 @@ build-base:
         package.json \
         .npmrc \
         .
-  RUN npm install -g pnpm@latest-9
-  RUN pnpm fetch --frozen-lockfile
+  RUN npm install -g pnpm@latest-9 --registry=https://registry.npmmirror.com
+  RUN pnpm fetch --frozen-lockfile --registry=https://registry.npmmirror.com
   SAVE ARTIFACT node_modules AS LOCAL node_modules
 
 check:
   FROM +build-base
   COPY . .
-  RUN pnpm install -r --prefer-offline
+  RUN pnpm install -r --prefer-offline --registry=https://registry.npmmirror.com
   RUN pnpm run build:check
 
 release:
   FROM +build-base
   COPY . .
-  RUN pnpm install -r --prefer-offline
+  RUN pnpm install -r --prefer-offline --registry=https://registry.npmmirror.com
   RUN pnpm version ${APP_VERSION} --no-commit-hooks --no-git-tag-version --allow-same-version
   RUN pnpm run release
 
