@@ -31,14 +31,14 @@
     "@typescript-eslint/types": "^8.6.0",
     "@typescript-eslint/typescript-estree": "^8.6.0",
     "@typescript-eslint/utils": "^8.6.0",
+    "esbuild": "^0.24.0",
     "eslint": "^9.10.0",
     "eslint-plugin-unused-imports": "^4.1.4",
     "eslint-plugin-vue": "^9.28.0",
     "fs-extra": "^11.2.0",
     "prettier": "^3.3.3",
     "taze": "^0.16.9",
-    "typescript": "^5.6.2",
-    "esbuild": "^0.24.0"
+    "typescript": "^5.6.2"
   },
   "publishConfig": {
     "access": "public",
