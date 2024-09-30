@@ -64,17 +64,17 @@ export const copyDependencies = (inFolder: string, outFolder: string, subFolder:
 
     if (entry.isDirectory()) {
       copyDependencies(sourcePath, destPath, subFolder);
-    } else {
-      if (fileName.endsWith('d.ts') || fileName.endsWith('.vue')) {
-        if (subFolder && sourcePath.includes(subFolder)) {
-          const subDestPath = path.join(outFolder, fileName.replace(subFolder, ''));
+      return;
+    }
+    if (fileName.endsWith('d.ts') || fileName.endsWith('.vue')) {
+      if (subFolder && sourcePath.includes(subFolder)) {
+        const subDestPath = path.join(outFolder, fileName.replace(subFolder, ''));
 
-          fs.ensureDirSync(path.dirname(subDestPath));
-          fs.copyFileSync(sourcePath, subDestPath);
-        } else {
-          fs.ensureDirSync(path.dirname(destPath));
-          fs.copyFileSync(sourcePath, destPath);
-        }
+        fs.ensureDirSync(path.dirname(subDestPath));
+        fs.copyFileSync(sourcePath, subDestPath);
+      } else {
+        fs.ensureDirSync(path.dirname(destPath));
+        fs.copyFileSync(sourcePath, destPath);
       }
     }
   });
