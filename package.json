@@ -55,6 +55,7 @@
   "bugs": {
     "url": "https://github.com/qwlabs/dorami/issues"
   },
+  "packageManager": "pnpm@9.11.0",
   "engines": {
     "node": ">=20.17.0",
     "pnpm": ">=9"

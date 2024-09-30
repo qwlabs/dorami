@@ -1,6 +1,6 @@
 VERSION 0.8
 ARG --global BASE_IMAGE=earthly/dind:alpine
-ARG --global NODE_IMAGE=node:20.17.0
+ARG --global NODE_IMAGE=node:20.17.0-alpine3.20
 
 FROM ${BASE_IMAGE}
 WORKDIR /app
@@ -19,19 +19,19 @@ build-base:
        .npmrc \
        .
   RUN npm install -g pnpm@latest-9 --registry=https://registry.npmmirror.com
-  RUN pnpm fetch --dev
+  RUN pnpm fetch --frozen-lockfile --force --dev --registry=https://registry.npmmirror.com
   SAVE ARTIFACT node_modules AS LOCAL node_modules
 
 check:
   FROM +build-base
   COPY . .
-  RUN pnpm install -r --prefer-offline --dev
+  RUN pnpm install -r --frozen-lockfile --force --dev --registry=https://registry.npmmirror.com
   RUN pnpm run build:check
 
 release:
   FROM +build-base
   COPY . .
-  RUN pnpm install -r --prefer-offline --dev
+  RUN pnpm install -r --frozen-lockfile --force --dev --registry=https://registry.npmmirror.com
   RUN pnpm version ${APP_VERSION} --no-commit-hooks --no-git-tag-version --allow-same-version
   RUN pnpm run release
 
