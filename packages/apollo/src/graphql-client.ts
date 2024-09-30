@@ -88,7 +88,7 @@ export const createClient = (config: GraphqlApiClientConfig): { client: ApolloCl
     defaultOptions: config.defaultOptions ?? DEFAULT_OPTIONS,
     devtools: {
       enabled: config.connectToDevTools,
-    }
+    },
   });
   return { client, cache };
 };
