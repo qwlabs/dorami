@@ -1,0 +1,53 @@
+{
+    "name": "@dorami/locale-generator",
+    "version": "0.0.0",
+    "main": "./src/index.ts",
+    "module": "./src/index.ts",
+    "types": "./src/index.ts",
+    "publishConfig": {
+        "main": "./index.mjs",
+        "module": "./index.mjs",
+        "types": "./index.d.mts",
+        "exports": {
+            ".": {
+                "types": "./index.d.mts",
+                "import": "./index.mjs"
+            }
+        },
+        "directory": "dist",
+        "linkDirectory": false,
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
+    },
+    "scripts": {
+        "build": "NODE_ENV=production INPUT_DIR=./ OUTPUT_DIR=dist/ pnpm run build:package",
+        "build:package": "pnpm run build:prebuild && tsup && pnpm run build:postbuild",
+        "build:prebuild": "tsx ./scripts/prebuild.ts",
+        "build:postbuild": "tsx ./scripts/postbuild.ts",
+        "dev:link": "pnpm link --global && npm link"
+    },
+    "dependencies": {
+        "lodash-es": "^4.17.21",
+        "properties-file": "^3.5.4",
+        "yaml": "^2.4.5"
+    },
+    "devDependencies": {
+        "tsup": "^8.2.4",
+        "tsx": "^4.16.2"
+    },
+    "author": "Qwlabs",
+    "homepage": "https://github.com/qwlabs/dorami",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/qwlabs/dorami.git",
+        "directory": "packages/locale-generator"
+    },
+    "bugs": {
+        "url": "https://github.com/qwlabs/dorami/issues"
+    },
+    "engines": {
+        "node": ">=20.17.0",
+        "pnpm": ">=9"
+    }
+}
