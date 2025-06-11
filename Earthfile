@@ -32,6 +32,7 @@ release:
   FROM +build-base
   COPY . .
   RUN pnpm install -r --prefer-offline --registry=https://registry.npmmirror.com
+  RUN pnpm config set //registry.npmjs.org/:_authToken ${NPM_ACCESS_TOKEN}
   RUN pnpm version ${APP_VERSION} --no-commit-hooks --no-git-tag-version --allow-same-version
   RUN pnpm run release
 
