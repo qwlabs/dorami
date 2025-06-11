@@ -33,7 +33,8 @@ release:
   COPY . .
   RUN pnpm install -r --prefer-offline --registry=https://registry.npmmirror.com
   RUN pnpm version ${APP_VERSION} --no-commit-hooks --no-git-tag-version --allow-same-version
-  RUN pnpm --config.//registry.npmjs.org/:_authToken=${NPM_ACCESS_TOKEN} release
+  RUN echo "//registry.npmjs.org/:_authToken={NPM_ACCESS_TOKEN}" > .npmrc
+  RUN pnpm run release
 
 ci-check:
   BUILD +check
