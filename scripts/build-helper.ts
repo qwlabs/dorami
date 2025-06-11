@@ -1,6 +1,7 @@
-import path from 'node:path';
+import * as path from 'node:path';
+import * as process from 'node:process';
 import { fileURLToPath } from 'node:url';
-import fs from 'fs-extra';
+import * as fs from 'fs-extra';
 
 export const resolvePath = (metaUrl?: string) => {
   const __dirname = path.dirname(fileURLToPath(metaUrl || import.meta.url));

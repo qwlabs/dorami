@@ -21,13 +21,13 @@
     },
     "scripts": {
         "build": "NODE_ENV=production INPUT_DIR=./ OUTPUT_DIR=dist/ pnpm run build:package",
-        "build:package": "pnpm run build:prebuild && tsup && pnpm run build:postbuild",
+        "build:package": "pnpm run build:prebuild && tsdown && pnpm run build:postbuild",
         "build:prebuild": "tsx ./scripts/prebuild.ts",
         "build:postbuild": "tsx ./scripts/postbuild.ts",
         "dev:link": "pnpm link --global && npm link"
     },
     "devDependencies": {
-        "tsup": "^8.5.0",
+        "tsdown": "^0.12.7",
         "tsx": "^4.20.0"
     },
     "author": "Qwlabs",

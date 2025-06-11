@@ -1,6 +1,6 @@
 import type { Loader } from '../loader.ts';
-import { YamlLoader } from './yaml-loader.ts';
 import { PropertiesLoader } from './properties-loader.ts';
+import { YamlLoader } from './yaml-loader.ts';
 
 const LOADERS: Loader[] = [new YamlLoader(), new PropertiesLoader()];
 

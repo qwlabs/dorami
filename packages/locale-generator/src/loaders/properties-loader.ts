@@ -1,6 +1,6 @@
+import type { Loader } from '../loader.ts';
 import { readFileSync } from 'node:fs';
 import { getProperties } from 'properties-file';
-import type { Loader } from '../loader.ts';
 
 export class PropertiesLoader implements Loader {
   async load(file: string): Promise<Record<string, string>> {
