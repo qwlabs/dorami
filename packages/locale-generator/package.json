@@ -28,12 +28,12 @@
     },
     "dependencies": {
         "lodash-es": "^4.17.21",
-        "properties-file": "^3.5.4",
-        "yaml": "^2.4.5"
+        "properties-file": "^3.5.12",
+        "yaml": "^2.8.0"
     },
     "devDependencies": {
-        "tsup": "^8.2.4",
-        "tsx": "^4.16.2"
+        "tsup": "^8.5.0",
+        "tsx": "^4.20.0"
     },
     "author": "Qwlabs",
     "homepage": "https://github.com/qwlabs/dorami",

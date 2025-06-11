@@ -27,12 +27,12 @@
         "dev:link": "pnpm link --global && npm link"
     },
     "dependencies": {
-        "@apollo/client": "^3.11.8",
-        "@vue/apollo-composable": "^4.2.1"
+        "@apollo/client": "^3.13.8",
+        "@vue/apollo-composable": "^4.2.2"
     },
     "devDependencies": {
-        "tsup": "^8.2.4",
-        "tsx": "^4.16.2"
+        "tsup": "^8.5.0",
+        "tsx": "^4.20.0"
     },
     "author": "Qwlabs",
     "homepage": "https://github.com/qwlabs/dorami",
