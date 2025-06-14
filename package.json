@@ -6,7 +6,7 @@
   "scripts": {
     "setup": "rm -rf **/node_modules **/dist ./pnpm-lock.yaml && pnpm install",
     "link": "pnpm --filter './packages/*' dev:link",
-    "release": "pnpm run build && pnpm recursive publish --filter './packages/*' --no-git-checks --report-summary",
+    "release": "pnpm run build && pnpm recursive publish --filter './packages/*' --no-git-checks --report-summary --access public",
     "build": "NODE_ENV=production pnpm run build:check && pnpm run build:packages",
     "build:check": "pnpm run format:check",
     "build:packages": "pnpm --filter './packages/*' build",
