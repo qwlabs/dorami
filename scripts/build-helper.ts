@@ -44,7 +44,7 @@ export const updatePackageJson = (localPackageJson: string) => {
   pkg.repository = { ...pkg.repository, ...packageJson.repository };
   pkg.bugs = { ...pkg.bugs, ...packageJson.bugs };
 
-  fs.writeFileSync(localPackageJson, JSON.stringify(pkg, null, 4));
+  fs.writeFileSync(localPackageJson, JSON.stringify(pkg, null, 2));
 };
 
 export const clearPackageJson = (localPackageJson: string) => {
