@@ -33,7 +33,7 @@
     },
     "devDependencies": {
         "tsdown": "^0.12.7",
-        "tsx": "^4.20.0"
+        "tsx": "^4.20.3"
     },
     "author": "Qwlabs",
     "homepage": "https://github.com/qwlabs/dorami",
