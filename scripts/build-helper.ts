@@ -27,6 +27,7 @@ export const removeBuild = (metaUrl?: string) => {
 };
 
 export const updatePackageJson = (localPackageJson: string) => {
+  console.log(`localPackageJson=${localPackageJson}`);
   const { __workspace } = resolvePath();
   const packageJson = JSON.parse(
     fs.readFileSync(path.resolve(__workspace, './package.json'), {
@@ -42,7 +43,6 @@ export const updatePackageJson = (localPackageJson: string) => {
   pkg.license = packageJson.license;
   pkg.repository = { ...pkg.repository, ...packageJson.repository };
   pkg.bugs = { ...pkg.bugs, ...packageJson.bugs };
-  pkg.engines = { ...pkg.engines, ...packageJson.engines };
 
   fs.writeFileSync(localPackageJson, JSON.stringify(pkg, null, 4));
 };
@@ -54,7 +54,7 @@ export const clearPackageJson = (localPackageJson: string) => {
   delete pkg?.devDependencies;
   delete pkg?.publishConfig?.directory;
   delete pkg?.publishConfig?.linkDirectory;
-  fs.writeFileSync(localPackageJson, JSON.stringify(pkg, null, 4));
+  fs.writeFileSync(localPackageJson, JSON.stringify(pkg, null, 2));
 };
 
 export const copyDependencies = (inFolder: string, outFolder: string, subFolder: string) => {

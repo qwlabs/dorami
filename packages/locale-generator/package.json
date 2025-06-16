@@ -47,7 +47,6 @@
         "url": "https://github.com/qwlabs/dorami/issues"
     },
     "engines": {
-        "node": ">=22.16.0",
-        "pnpm": ">=10"
+        "node": ">=20"
     }
 }
