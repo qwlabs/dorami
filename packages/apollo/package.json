@@ -31,7 +31,7 @@
         "@vue/apollo-composable": "^4.2.2"
     },
     "devDependencies": {
-        "tsdown": "^0.12.7",
+        "tsdown": "^0.12.8",
         "tsx": "^4.20.3"
     },
     "author": "Qwlabs",
