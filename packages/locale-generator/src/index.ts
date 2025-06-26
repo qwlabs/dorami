@@ -1,7 +1,7 @@
 import { writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { assign } from 'es-toolkit/compat';
 import { glob } from 'glob';
-import { assign } from 'lodash-es';
 import { lookupLoader } from './loaders';
 
 export interface BuildLocaleEntry {

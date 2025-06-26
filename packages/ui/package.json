@@ -1,5 +1,5 @@
 {
-  "name": "@dorami/locale-generator",
+  "name": "@dorami/ui",
   "version": "0.0.0",
   "main": "./src/index.ts",
   "module": "./src/index.ts",
@@ -27,16 +27,16 @@
     "dev:link": "pnpm link --global && npm link"
   },
   "dependencies": {
-    "es-toolkit": "^1.39.5",
-    "glob": "^11.0.3"
-  },
-  "optionalDependencies": {
-    "properties-file": "^3.5.12",
-    "yaml": "^2.8.0"
+    "@primeuix/themes": "^1.1.2",
+    "@vueuse/core": "^13.4.0",
+    "primevue": "^4.3.5",
+    "vue-types": "^6.0.0"
   },
   "devDependencies": {
     "tsdown": "^0.12.9",
-    "tsx": "^4.20.3"
+    "tsx": "^4.20.3",
+    "unplugin-vue": "^6.2.0",
+    "vue-tsc": "^2.2.10"
   },
   "author": "Qwlabs",
   "homepage": "https://github.com/qwlabs/dorami",
