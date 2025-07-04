@@ -26,13 +26,15 @@
     "build:postbuild": "tsx ./scripts/postbuild.ts",
     "dev:link": "pnpm link --global && npm link"
   },
-  "dependencies": {
+  "peerDependencies": {
     "@apollo/client": "^3.13.8",
     "@vue/apollo-composable": "^4.2.2"
   },
   "devDependencies": {
-    "tsdown": "^0.12.9",
-    "tsx": "^4.20.3"
+    "@apollo/client": "catalog:dev",
+    "@vue/apollo-composable": "catalog:dev",
+    "tsdown": "catalog:dev",
+    "tsx": "catalog:dev"
   },
   "author": "Qwlabs",
   "homepage": "https://github.com/qwlabs/dorami",

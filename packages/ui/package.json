@@ -26,17 +26,21 @@
     "build:postbuild": "tsx ./scripts/postbuild.ts",
     "dev:link": "pnpm link --global && npm link"
   },
-  "dependencies": {
+  "peerDependencies": {
     "@primeuix/themes": "^1.1.2",
     "@vueuse/core": "^13.4.0",
     "primevue": "^4.3.5",
     "vue-types": "^6.0.0"
   },
   "devDependencies": {
-    "tsdown": "^0.12.9",
-    "tsx": "^4.20.3",
-    "unplugin-vue": "^6.2.0",
-    "vue-tsc": "^2.2.10"
+    "tsdown": "catalog:dev",
+    "tsx": "catalog:dev",
+    "unplugin-vue": "catalog:dev",
+    "vue-tsc": "catalog:dev",
+    "@primeuix/themes": "catalog:dev",
+    "@vueuse/core": "catalog:dev",
+    "primevue": "catalog:dev",
+    "vue-types": "catalog:dev"
   },
   "author": "Qwlabs",
   "homepage": "https://github.com/qwlabs/dorami",

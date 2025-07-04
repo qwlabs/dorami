@@ -26,17 +26,23 @@
     "build:postbuild": "tsx ./scripts/postbuild.ts",
     "dev:link": "pnpm link --global && npm link"
   },
-  "dependencies": {
+  "peerDependencies": {
     "es-toolkit": "^1.39.5",
-    "glob": "^11.0.3"
-  },
-  "optionalDependencies": {
+    "glob": "^11.0.3",
     "properties-file": "^3.5.12",
     "yaml": "^2.8.0"
   },
+  "peerDependenciesMeta": {
+    "properties-file": {
+      "optional": true
+    },
+    "yaml": {
+      "optional": true
+    }
+  },
   "devDependencies": {
-    "tsdown": "^0.12.9",
-    "tsx": "^4.20.3"
+    "tsdown": "catalog:dev",
+    "tsx": "catalog:dev"
   },
   "author": "Qwlabs",
   "homepage": "https://github.com/qwlabs/dorami",

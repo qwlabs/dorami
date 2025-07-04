@@ -4,6 +4,39 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+catalogs:
+  dev:
+    '@apollo/client':
+      specifier: ^3.13.8
+      version: 3.13.8
+    '@primeuix/themes':
+      specifier: ^1.1.2
+      version: 1.1.2
+    '@vue/apollo-composable':
+      specifier: ^4.2.2
+      version: 4.2.2
+    '@vueuse/core':
+      specifier: ^13.4.0
+      version: 13.4.0
+    primevue:
+      specifier: ^4.3.5
+      version: 4.3.5
+    tsdown:
+      specifier: ^0.12.9
+      version: 0.12.9
+    tsx:
+      specifier: ^4.20.3
+      version: 4.20.3
+    unplugin-vue:
+      specifier: ^6.2.0
+      version: 6.2.0
+    vue-tsc:
+      specifier: ^2.2.10
+      version: 2.2.10
+    vue-types:
+      specifier: ^6.0.0
+      version: 6.0.0
+
 importers:
 
   .:
@@ -59,29 +92,28 @@ importers:
     publishDirectory: dist
 
   packages/apollo:
-    dependencies:
+    devDependencies:
       '@apollo/client':
-        specifier: ^3.13.8
+        specifier: catalog:dev
         version: 3.13.8(graphql@16.9.0)
       '@vue/apollo-composable':
-        specifier: ^4.2.2
+        specifier: catalog:dev
         version: 4.2.2(@apollo/client@3.13.8(graphql@16.9.0))(graphql@16.9.0)(typescript@5.8.3)(vue@3.5.10(typescript@5.8.3))
-    devDependencies:
       tsdown:
-        specifier: ^0.12.9
+        specifier: catalog:dev
         version: 0.12.9(typescript@5.8.3)(vue-tsc@2.2.10(typescript@5.8.3))
       tsx:
-        specifier: ^4.20.3
+        specifier: catalog:dev
         version: 4.20.3
     publishDirectory: dist
 
   packages/lang:
     devDependencies:
       tsdown:
-        specifier: ^0.12.9
+        specifier: catalog:dev
         version: 0.12.9(typescript@5.8.3)(vue-tsc@2.2.10(typescript@5.8.3))
       tsx:
-        specifier: ^4.20.3
+        specifier: catalog:dev
         version: 4.20.3
     publishDirectory: dist
 
@@ -93,49 +125,47 @@ importers:
       glob:
         specifier: ^11.0.3
         version: 11.0.3
-    devDependencies:
-      tsdown:
-        specifier: ^0.12.9
-        version: 0.12.9(typescript@5.8.3)(vue-tsc@2.2.10(typescript@5.8.3))
-      tsx:
-        specifier: ^4.20.3
-        version: 4.20.3
-    optionalDependencies:
       properties-file:
         specifier: ^3.5.12
         version: 3.5.12
       yaml:
         specifier: ^2.8.0
         version: 2.8.0
+    devDependencies:
+      tsdown:
+        specifier: catalog:dev
+        version: 0.12.9(typescript@5.8.3)(vue-tsc@2.2.10(typescript@5.8.3))
+      tsx:
+        specifier: catalog:dev
+        version: 4.20.3
     publishDirectory: dist
 
   packages/ui:
-    dependencies:
+    devDependencies:
       '@primeuix/themes':
-        specifier: ^1.1.2
+        specifier: catalog:dev
         version: 1.1.2
       '@vueuse/core':
-        specifier: ^13.4.0
+        specifier: catalog:dev
         version: 13.4.0(vue@3.5.10(typescript@5.8.3))
       primevue:
-        specifier: ^4.3.5
+        specifier: catalog:dev
         version: 4.3.5(vue@3.5.10(typescript@5.8.3))
-      vue-types:
-        specifier: ^6.0.0
-        version: 6.0.0(vue@3.5.10(typescript@5.8.3))
-    devDependencies:
       tsdown:
-        specifier: ^0.12.9
+        specifier: catalog:dev
         version: 0.12.9(typescript@5.8.3)(vue-tsc@2.2.10(typescript@5.8.3))
       tsx:
-        specifier: ^4.20.3
+        specifier: catalog:dev
         version: 4.20.3
       unplugin-vue:
-        specifier: ^6.2.0
+        specifier: catalog:dev
         version: 6.2.0(@types/node@22.7.4)(jiti@2.4.2)(tsx@4.20.3)(vue@3.5.10(typescript@5.8.3))(yaml@2.8.0)
       vue-tsc:
-        specifier: ^2.2.10
+        specifier: catalog:dev
         version: 2.2.10(typescript@5.8.3)
+      vue-types:
+        specifier: catalog:dev
+        version: 6.0.0(vue@3.5.10(typescript@5.8.3))
     publishDirectory: dist
 
 packages:
@@ -2955,7 +2985,7 @@ snapshots:
 
   '@es-joy/jsdoccomment@0.50.2':
     dependencies:
-      '@types/estree': 1.0.6
+      '@types/estree': 1.0.8
       '@typescript-eslint/types': 8.35.0
       comment-parser: 1.4.1
       esquery: 1.6.0
@@ -5049,8 +5079,7 @@ snapshots:
       object-assign: 4.1.1
       react-is: 16.13.1
 
-  properties-file@3.5.12:
-    optional: true
+  properties-file@3.5.12: {}
 
   punycode@2.3.1: {}
 
