@@ -33,13 +33,13 @@
     "vue-types": "^6.0.0"
   },
   "devDependencies": {
+    "@primeuix/themes": "catalog:dev",
+    "@vueuse/core": "catalog:dev",
+    "primevue": "catalog:dev",
     "tsdown": "catalog:dev",
     "tsx": "catalog:dev",
     "unplugin-vue": "catalog:dev",
     "vue-tsc": "catalog:dev",
-    "@primeuix/themes": "catalog:dev",
-    "@vueuse/core": "catalog:dev",
-    "primevue": "catalog:dev",
     "vue-types": "catalog:dev"
   },
   "author": "Qwlabs",
