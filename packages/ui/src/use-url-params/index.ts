@@ -1,8 +1,9 @@
-import { createSharedComposable, useUrlSearchParams } from '@vueuse/core';
+import type { Ref } from 'vue';
+import { createSharedComposable, tryOnBeforeMount, useUrlSearchParams, watchDebounced } from '@vueuse/core';
 import { get } from 'es-toolkit/compat';
-import { ref, type Ref } from 'vue';
+import { shallowRef } from 'vue';
 
-const useUrlParams = createSharedComposable(() => {
+const useAllUrlSearchParams = createSharedComposable(() => {
   const urlParams = useUrlSearchParams<Record<string, any>>('history', {
     initialValue: {},
     removeNullishValues: true,
@@ -21,39 +22,22 @@ const useUrlParams = createSharedComposable(() => {
   };
 });
 
-// export const useTypedUrlParam = <T = any>(name: string, defaultValue: T | undefined): Ref<T | undefined> => {
-//   const value: Ref<T> = ref(defaultValue);
-//   return value;
-// };
-
-export const useTypedUrlParam = <T = any>(name: string, defaultValue: T | undefined): Ref<T> => {
-  const a: string ="1";
-  const value = ref<T>(a);
+export const useUrlParam = <T = any>(name: string, defaultValue?: T): Ref<T> => {
+  const { fromUrl, effectToUrl } = useAllUrlSearchParams();
+  const value: Ref<T> = shallowRef<T>(fromUrl(name, defaultValue));
+  tryOnBeforeMount(() => {
+    effectToUrl(name, value.value);
+  });
+  watchDebounced(
+    () => value,
+    (newValue, oldValue) => {
+      effectToUrl(name, value.value);
+    },
+    {
+      debounce: 500,
+      maxWait: 1000,
+      rejectOnCancel: true,
+    }
+  );
   return value;
 };
-
-// export const useUrlStringParam = <T = string>(name: string, defaultValue: T | undefined): Ref<T | undefined> => {
-//   const { urlParams } = useUrlParams();
-//
-//   // watchWithFilter(
-//   //   urlParams,
-//   //   () => { console.log('changed!') }, // callback will be called in 500ms debounced manner
-//   //   {
-//   //     eventFilter: debounceFilter(500), // throttledFilter, pausableFilter or custom filters
-//   //   },
-//   // )
-//
-//   const value = ref(defaultValue);
-// };
-
-// export const useUrlStringParam = computedWithControl(
-//   () => source.value, // watch source, same as `watch`
-//   () => counter.value, // computed getter, same as `computed`
-// )
-
-// export const useUrlParam = <T = string>(name: string, defaultValue: T): Ref<T> => {
-//   const { fromUrl } = useUrlParams();
-//   const value = ref<boolean>(fromUrlBoolean(name, defaultValue));
-//   watchChanged(value, name, onChanged);
-//   return value;
-// };
