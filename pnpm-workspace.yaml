@@ -8,8 +8,26 @@ catalogs:
     '@vue/apollo-composable': ^4.2.2
     '@vueuse/core': ^13.5.0
     primevue: ^4.3.6
+    rolldown-plugin-dts: ^0.13.13
     tsdown: ^0.12.9
     tsx: ^4.20.3
     unplugin-vue: ^6.2.0
-    vue-tsc: ^2.2.0
+    vue-tsc: ^2.2.12
     vue-types: ^6.0.0
+    vue: ^3.5.17
+    '@antfu/eslint-config': ^3.16.0
+    '@types/fs-extra': ^11.0.4
+    '@typescript-eslint/eslint-plugin': ^8.35.1
+    '@typescript-eslint/parser': ^8.35.1
+    '@typescript-eslint/type-utils': ^8.35.1
+    '@typescript-eslint/types': ^8.35.1
+    '@typescript-eslint/typescript-estree': ^8.35.1
+    '@typescript-eslint/utils': ^8.35.1
+    eslint: ^9.30.1
+    eslint-plugin-unused-imports: ^4.1.4
+    eslint-plugin-vue: ^9.33.0
+    fs-extra: ^11.3.0
+    prettier: ^3.6.2
+    simple-git-hooks: ^2.13.0
+    taze: ^0.16.9
+    typescript: ^5.6.3

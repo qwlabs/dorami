@@ -1,6 +1,6 @@
 VERSION 0.8
 ARG --global BASE_IMAGE=earthly/dind:alpine
-ARG --global NODE_IMAGE=node:22.16.0-alpine3.20
+ARG --global NODE_IMAGE=node:22.17.0-alpine3.20
 
 FROM ${BASE_IMAGE}
 WORKDIR /app
