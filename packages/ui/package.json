@@ -31,11 +31,11 @@
   },
   "peerDependencies": {
     "vue": "^3.5.17",
-    "@primeuix/themes": "^1.1.2",
-    "@vueuse/core": "^13.4.0",
-    "primevue": "^4.3.5",
-    "vue-types": "^6.0.0",
-    "es-toolkit": "^1.39.5"
+    "@primeuix/themes": "^1",
+    "@vueuse/core": "^14",
+    "primevue": "^4",
+    "vue-types": "^6",
+    "es-toolkit": "^1"
   },
   "devDependencies": {
     "@primeuix/themes": "catalog:dev",

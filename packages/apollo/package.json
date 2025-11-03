@@ -27,7 +27,7 @@
     "dev:link": "pnpm link --global && npm link"
   },
   "peerDependencies": {
-    "@apollo/client": "^3.13.8",
+    "@apollo/client": "^4",
     "@vue/apollo-composable": "^4.2.2"
   },
   "devDependencies": {

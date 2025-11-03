@@ -53,9 +53,8 @@
   "bugs": {
     "url": "https://github.com/qwlabs/dorami/issues"
   },
-  "packageManager": "pnpm@10.12.4",
   "engines": {
-    "node": ">=22",
+    "node": ">=24",
     "pnpm": ">=10"
   },
   "simple-git-hooks": {
